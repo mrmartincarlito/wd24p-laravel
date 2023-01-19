@@ -16,7 +16,10 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->string("item_name");
+            $table->foreignId("employee_id");
             $table->timestamps();
+
+            $table->foreign("employee_id")->references('id')->on('employee');
         });
     }
 
